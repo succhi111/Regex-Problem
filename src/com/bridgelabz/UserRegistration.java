@@ -80,7 +80,8 @@ public class UserRegistration {
     public boolean validPassword() {
 
         System.out.println("Enter Password: ");
-        String Password = sc.next();;
+        String Password = sc.next();
+        ;
         String regex = "^[a-zA-Z]{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(Password);
@@ -101,6 +102,23 @@ public class UserRegistration {
         String regex = "^[A-Za-z0-9]{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(UpperPassword);
+        boolean result = matcher.matches();
+        System.out.println(result);
+
+        if (result)
+            System.out.println("Password is Valid");
+        else
+            System.out.println("Password is Invalid");
+        return result;
+    }
+
+    public boolean validNumericPassword() {
+
+        System.out.println("Enter numericPassword: ");
+        String NumericPassword = sc.next();
+        String regex = "^[A-Z][a-z0-9]{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(NumericPassword);
         boolean result = matcher.matches();
         System.out.println(result);
 
